@@ -22,13 +22,6 @@ TorrentFlix is a highly optimized, dependency-light web application that allows 
 
 ---
 
-## 📸 Demo
-
-![TorrentFlix Demo Interface](https://via.placeholder.com/800x450.png?text=TorrentFlix+Player+Interface)
-*(Placeholder for actual screenshot)*
-
----
-
 ## ❓ Why This Project?
 
 **The Problem**: Downloading large video torrents takes time. Traditional torrent clients require you to download the entire file before watching, or they offer clunky, unreliable sequential streaming with poor format support.  
