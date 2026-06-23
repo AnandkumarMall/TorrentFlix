@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torrent Stream</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>▶ Torrent Stream</h1>
+    <p class="sub">Paste a magnet link or drop a .torrent file — stream instantly.</p>
+  </header>
+
+  <section class="input-bar">
+    <input id="magnet" type="text" placeholder="magnet:?xt=urn:btih:…" autocomplete="off" />
+    <button id="add">Stream</button>
+    <label class="file-btn">
+      .torrent
+      <input id="file" type="file" accept=".torrent" hidden />
+    </label>
+  </section>
+
+  <div id="drop" class="drop-hint">Drop a .torrent file anywhere</div>
+  <p id="error" class="error" hidden></p>
+
+  <main hidden id="player-wrap">
+    <video id="video" controls preload="auto" playsinline></video>
+    <div id="status" class="status"></div>
+    <div class="progress-wrap"><div id="progress-bar" class="progress-bar"></div></div>
+    <ul id="files" class="files"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

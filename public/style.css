@@ -1,0 +1,137 @@
+:root {
+  --bg: #0d0f14;
+  --panel: #161a23;
+  --accent: #ff0000;
+  --text: #e6e9ef;
+  --muted: #8b93a7;
+  --error: #ff5d5d;
+  --plyr-color-main: var(--accent);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+}
+
+header { text-align: center; margin-bottom: 1.5rem; }
+h1 { margin: 0; font-size: 1.8rem; letter-spacing: 0.5px; }
+.sub { color: var(--muted); margin: 0.35rem 0 0; font-size: 0.95rem; }
+
+.input-bar {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+#magnet {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #283044;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+}
+#magnet:focus { border-color: var(--accent); }
+
+button, .file-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.file-btn {
+  background: var(--panel);
+  border: 1px solid #283044;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+}
+button:hover { filter: brightness(1.1); }
+
+.drop-hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.75rem 0;
+  opacity: 0.6;
+}
+body.dragging .drop-hint { opacity: 1; color: var(--accent); }
+
+.error {
+  text-align: center;
+  color: var(--error);
+  max-width: 760px;
+  margin: 0.5rem auto;
+}
+
+main {
+  max-width: 960px;
+  margin: 1.5rem auto 0;
+}
+
+video {
+  width: 100%;
+  border-radius: 12px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.status {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 1.25rem 0.25rem 0.5rem;
+}
+.status b { color: var(--text); font-weight: 600; }
+
+.progress-wrap {
+  width: calc(100% - 0.5rem);
+  height: 6px;
+  background: #1b2233;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem 0.25rem 1rem;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.files { list-style: none; padding: 0; margin: 1rem 0 0; }
+.files li {
+  padding: 0.65rem 0.9rem;
+  background: var(--panel);
+  border: 1px solid #232a3a;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+.files li:hover { border-color: var(--accent); }
+.files li.active { border-color: var(--accent); background: #1b2233; }
+.files li .size { color: var(--muted); white-space: nowrap; }
+.files li.novideo { opacity: 0.45; cursor: default; }
+
+/* Force Plyr to show progress bar and duration even for live streams */
+.plyr--live .plyr__progress { display: flex !important; }
+.plyr--live .plyr__time--duration { display: block !important; }
